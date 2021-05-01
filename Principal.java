@@ -20,12 +20,12 @@ public class Principal
         System.out.println("Escoja el número 8 para mostrar la información de tipo temperatura.");
         System.out.println("Escoja el número 666 para visualizar los sensores ");
         Scanner scan = new Scanner(System.in);
+        System.out.println("Escoja el número");
         int num = scan.nextInt();
         int contador = 0;
 
         while(num != 0)
         {
-            System.out.println("Escoja el número");
             if(num==1)
             {
                 if(Vehiculo.cantidadVehiculos()!=Vehiculo.tamaño)
@@ -94,6 +94,7 @@ public class Principal
 
                 System.out.println(Sensor.toStringSensoresTemp());
             }
+            System.out.println("Escoja el número");
             num = scan.nextInt();
         }
     }
