@@ -90,9 +90,7 @@ public class Principal
             }
             else if(num==666)
             {
-                Sensor.organizarValor();
-
-                System.out.println(Sensor.toStringSensoresTemp());
+                System.out.println(Sensor.toStringSensoresSatanicos(Sensor.valorOrganizado()));
             }
             System.out.println("Escoja el número");
             num = scan.nextInt();

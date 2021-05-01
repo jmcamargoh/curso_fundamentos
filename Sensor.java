@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class Sensor 
 {
     public static Sensor[] sensores = new Sensor[8];
@@ -78,24 +79,51 @@ public class Sensor
         return s;
     }
  
-    public static void organizarValor()
+    public static ArrayList<Sensor> valorOrganizado()
     {
+        ArrayList<Sensor> org = new ArrayList<Sensor>();
+        
+        for(int i = 0; i<Sensor.cantidadSensores(); i++)
+        {
+            if(Sensor.sensores[i].getTipo().toUpperCase().equals("TEMPERATURA"))
+            {
+                Sensor nuevo = new Sensor();
+                nuevo.setTipo(Sensor.sensores[i].getTipo());
+                nuevo.setValor(Sensor.sensores[i].getValor());
+                org.add(nuevo);
+            }
+        }
+        
         int posMenor;
         double obTemp;
-        for(int i = 0; i < Sensor.cantidadSensores() - 1; i++)
+        for(int i = 0; i < org.size() - 1; i++)
         {
             posMenor = i;
-            for(int j = i + 1; j < Sensor.cantidadSensores(); j++)
+            for(int j = i + 1; j <org.size(); j++)
             {
-                if(Sensor.sensores[j].getValor() < Sensor.sensores[posMenor].getValor())
+                if(org.get(j).getValor() < org.get(posMenor).getValor())
                 {
                     posMenor = j;
                 }
             }
-            obTemp = Sensor.sensores[i].getValor();
-            Sensor.sensores[i].setValor(Sensor.sensores[posMenor].getValor());
-            Sensor.sensores[posMenor].setValor(obTemp); 
+            obTemp = org.get(i).getValor();
+            org.get(i).setValor(org.get(posMenor).getValor());
+            org.get(posMenor).setValor(obTemp); 
         }
+        
+        return org;
     }
- 
+    
+    public static String toStringSensoresSatanicos(ArrayList<Sensor> a)
+    {
+        String s = "Estos son los sensores en nuestra lista: \n";
+        if(a.size()>0)
+        {
+            for(int i = 0; i<a.size() ; i++)
+            {
+                s=s.concat(a.get(i).toString());
+            }
+        }
+        return s;
+    }
 }
