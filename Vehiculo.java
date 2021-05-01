@@ -76,7 +76,7 @@ public class Vehiculo{
  
 
     public String toString(){
-        return "Modelo: "+this.modelo+" Marca: "+this.marca+" Valor Comercial: "+this.valorComercial+" Color: "+this.color;
+        return "Modelo: "+this.modelo+" Marca: "+this.marca+" Valor Comercial: "+this.valorComercial+" Color: "+this.color+"\n";
     }
  
 
