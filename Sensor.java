@@ -1,4 +1,4 @@
-public class Sensor
+public class Sensor 
 {
     public static Sensor[] sensores = new Sensor[8];
  
