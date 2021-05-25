@@ -2,22 +2,21 @@ import java.util.ArrayList;
 public class Sensor 
 {
     public static Sensor[] sensores = new Sensor[8];
- 
     private String tipo;
     private double valor;
-    public static int tamaño = 8;
-    public static int posAñadir = 0;
- 
+    public static int tamano = 8;
+    public static int posAnadir = 0;
+    
     public Sensor()
     {
     }
  
     public Sensor(String t, double v)
     {
-        sensores[posAñadir] = new Sensor();
-        sensores[posAñadir].setTipo(t);
-        sensores[posAñadir].setValor(v);
-        posAñadir++;
+        sensores[posAnadir] = new Sensor();
+        sensores[posAnadir].setTipo(t);
+        sensores[posAnadir].setValor(v);
+        posAnadir++;
     }
  
     public String getTipo()
@@ -30,59 +29,58 @@ public class Sensor
         return this.valor;
     }
  
-    public void setTipo(String t)
+    public void setTipo(String tip)
     {
-        this.tipo = t;
+        this.tipo = tip;
     }
  
-    public void setValor(double v)
+    public void setValor(double val)
     {
-        this.valor = v;
+        this.valor = val;
     }
  
     public String toString()
     {
-        return "Tipo: "+this.tipo+" Valor: "+this.valor + "\n";
+        return "Tipo: "+getTipo()+" - Valor: "+getValor() + "\n";
     }
  
     public static String toStringSensores()
     {
-        String s = "Estos son los sensores en nuestra lista: \n";
+        String string = "Estos son los sensores en nuestra lista: \n";
         if(Sensor.cantidadSensores()>0)
         {
             for(int i = 0; i<Sensor.cantidadSensores() ; i++)
             {
-                s=s.concat(Sensor.sensores[i].toString());
+                string=string.concat(Sensor.sensores[i].toString());
             }
         }
-        return s;
+        return string;
     }
  
     public static int cantidadSensores()
     {
-        return posAñadir;
+        return posAnadir;
     }
  
     public static String toStringSensoresTemp()
     {
-        String s = "Estos son los sensores en nuestra lista: \n";
+        String string = "Estos son los sensores en nuestra lista: \n";
         if(Sensor.cantidadSensores()>0)
         {
             for(int i = 0; i<Sensor.cantidadSensores() ; i++)
             {
                 if(Sensor.sensores[i].getTipo().toUpperCase().equals("TEMPERATURA"))
                 {
-                    s=s.concat(Sensor.sensores[i].toString());
+                    string=string.concat(Sensor.sensores[i].toString());
                 }
             }
         }
-        return s;
+        return string;
     }
  
     public static ArrayList<Sensor> valorOrganizado()
     {
-        ArrayList<Sensor> org = new ArrayList<Sensor>();
-        
+        ArrayList<Sensor> organizado = new ArrayList<Sensor>();
         for(int i = 0; i<Sensor.cantidadSensores(); i++)
         {
             if(Sensor.sensores[i].getTipo().toUpperCase().equals("TEMPERATURA"))
@@ -90,40 +88,38 @@ public class Sensor
                 Sensor nuevo = new Sensor();
                 nuevo.setTipo(Sensor.sensores[i].getTipo());
                 nuevo.setValor(Sensor.sensores[i].getValor());
-                org.add(nuevo);
+                organizado.add(nuevo);
             }
         }
-        
         int posMenor;
-        double obTemp;
-        for(int i = 0; i < org.size() - 1; i++)
+        double obTemporal;
+        for(int i = 0; i < organizado.size() - 1; i++)
         {
             posMenor = i;
-            for(int j = i + 1; j <org.size(); j++)
+            for(int j = i + 1; j <organizado.size(); j++)
             {
-                if(org.get(j).getValor() < org.get(posMenor).getValor())
+                if(organizado.get(j).getValor() < organizado.get(posMenor).getValor())
                 {
                     posMenor = j;
                 }
             }
-            obTemp = org.get(i).getValor();
-            org.get(i).setValor(org.get(posMenor).getValor());
-            org.get(posMenor).setValor(obTemp); 
+            obTemporal = organizado.get(i).getValor();
+            organizado.get(i).setValor(organizado.get(posMenor).getValor());
+            organizado.get(posMenor).setValor(obTemporal); 
         }
-        
-        return org;
+        return organizado;
     }
     
     public static String toStringSensoresSatanicos(ArrayList<Sensor> a)
     {
-        String s = "Estos son los sensores en nuestra lista: \n";
+        String string = "Estos son los sensores en nuestra lista: \n";
         if(a.size()>0)
         {
             for(int i = 0; i<a.size() ; i++)
             {
-                s=s.concat(a.get(i).toString());
+                string=string.concat(a.get(i).toString());
             }
         }
-        return s;
+        return string;
     }
 }

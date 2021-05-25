@@ -1,8 +1,6 @@
 import java.util.Scanner;
- 
 public class Principal
 {
-
     public static void main(String[] args)
     {
         Principal.mostrarMenu();
@@ -28,7 +26,7 @@ public class Principal
         {
             if(num==1)
             {
-                if(Vehiculo.cantidadVehiculos()!=Vehiculo.tamaño)
+                if(Vehiculo.cantidadVehiculos()!=Vehiculo.tamano)
                 {
                     System.out.println("Ingrese el modelo del vehículo");
                     int mod = scan.nextInt();
@@ -63,7 +61,7 @@ public class Principal
             }
             else if(num==5)
             {
-                if(Sensor.cantidadSensores()!=Sensor.tamaño){
+                if(Sensor.cantidadSensores()!=Sensor.tamano){
                     System.out.println("Ingrese el tipo de sensor");
                     String tip = scan.next();
                     System.out.println("Ingrese el valor del sensor");
