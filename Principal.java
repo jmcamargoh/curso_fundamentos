@@ -90,6 +90,15 @@ public class Principal
             {
                 System.out.println(Sensor.toStringSensoresSatanicos(Sensor.obtenerSensoresOrganizados()));
             }
+            System.out.println("Escoja el número 1 para crear un vehículo.");
+            System.out.println("Escoja el número 2 para mostrar la información de todos los vehículos creados.");
+            System.out.println("Escoja el número 3 para mostrar la cantidad de vehículos creados.");
+            System.out.println("Escoja el número 4 para mostrar la información de los vehículos verdes.");
+            System.out.println("Escoja el número 5 para crear un sensor.");
+            System.out.println("Escoja el número 6 para mostrar la información de todos los sensores creados.");
+            System.out.println("Escoja el número 7 para mostrar el número de sensores creados.");
+            System.out.println("Escoja el número 8 para mostrar la información de tipo temperatura.");
+            System.out.println("Escoja el número 666 para visualizar los sensores ");
             System.out.println("Escoja el número");
             num = scan.nextInt();
         }
