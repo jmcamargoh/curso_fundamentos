@@ -85,10 +85,7 @@ public class Sensor
         {
             if(Sensor.sensores[i].getTipo().toUpperCase().equals("TEMPERATURA"))
             {
-                Sensor nuevo = new Sensor();
-                nuevo.setTipo(Sensor.sensores[i].getTipo());
-                nuevo.setValor(Sensor.sensores[i].getValor());
-                organizado.add(nuevo);
+                organizado.add(Sensor.sensores[i]);
             }
         }
         int posMenor;
