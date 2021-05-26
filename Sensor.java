@@ -78,7 +78,7 @@ public class Sensor
         return string;
     }
  
-    public static ArrayList<Sensor> valorOrganizado()
+    public static ArrayList<Sensor> obtenerSensoresOrganizados()
     {
         ArrayList<Sensor> organizado = new ArrayList<Sensor>();
         for(int i = 0; i<Sensor.cantidadSensores(); i++)
