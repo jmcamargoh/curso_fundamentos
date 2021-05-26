@@ -61,26 +61,41 @@ public class Principal
             }
             else if(num==5)
             {
-                if(Sensor.cantidadSensores()!=Sensor.tamano){
-                    System.out.println("Ingrese el tipo de sensor");
-                    String tip = scan.next();
-                    System.out.println("Ingrese el valor del sensor");
-                    double val = scan.nextDouble();
-
-                    Sensor nSensor = new Sensor(tip, val);
-                }
-                else
-                {
-                    System.out.println("Error base de datos llena");
+                System.out.println("Ingrese un ID");
+                int id= scan.nextInt();
+                if(Vehiculo.obtenerVehiculoPorId(id)==null){
+                    System.out.println("Error, ID no encontrado");
+                }else{
+                    Vehiculo vehiculo= Vehiculo.obtenerVehiculoPorId(id);
+                    vehiculo.toString();
                 }
             }
             else if(num==6)
             {
-                System.out.println(Sensor.toStringSensores());
+                System.out.println("Ingrese un ID");
+                int id= scan.nextInt();
+                if(Vehiculo.obtenerVehiculoPorId(id)==null){
+                    System.out.println("Error, ID no encontrado");
+                }else{
+                    Vehiculo vehiculo= Vehiculo.obtenerVehiculoPorId(id);
+                    System.out.println("Ingrese el tipo de sensor");
+                    String tip = scan.next();
+                    System.out.println("Ingrese el valor del sensor");
+                    double val = scan.nextDouble();
+                    Sensor s1 = new Sensor(tip, val);
+                    vehiculo.anadirSensor(s1);
+                }
             }
             else if(num==7)
             {
-                System.out.println(Sensor.cantidadSensores());
+                System.out.println("Ingrese un ID");
+                int id= scan.nextInt();
+                if(Vehiculo.obtenerVehiculoPorId(id)==null){
+                    System.out.println("Error, ID no encontrado");
+                }else{
+                    Vehiculo vehiculo= Vehiculo.obtenerVehiculoPorId(id);
+                    vehiculo
+                }
             }
             else if(num==8)
             {

@@ -1,22 +1,16 @@
-import java.util.ArrayList;
 public class Sensor 
 {
-    public static Sensor[] sensores = new Sensor[8];
     private String tipo;
     private double valor;
-    public static int tamano = 8;
-    public static int posAnadir = 0;
     
     public Sensor()
     {
     }
  
-    public Sensor(String t, double v)
+    public Sensor(String tip, double val)
     {
-        sensores[posAnadir] = new Sensor();
-        sensores[posAnadir].setTipo(t);
-        sensores[posAnadir].setValor(v);
-        posAnadir++;
+        this.tipo= tip;
+        this.valor= val;
     }
  
     public String getTipo()
@@ -44,7 +38,7 @@ public class Sensor
         return "Tipo: "+getTipo()+" - Valor: "+getValor() + "\n";
     }
  
-    public static String toStringSensores()
+    /*public static String toStringSensores()
     {
         String string = "Estos son los sensores en nuestra lista: \n";
         if(Sensor.cantidadSensores()>0)
@@ -118,5 +112,5 @@ public class Sensor
             }
         }
         return string;
-    }
+    }*/
 }
