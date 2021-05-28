@@ -78,6 +78,11 @@ public class Vehiculo{
     }
  
     public String toString(){
+        return "ID: "+getId()+" - Modelo: "+getModelo()+" - Marca: "+getMarca()+" - Valor Comercial: "+getValorComercial()+" - Color: "+getColor()+"\n"+
+        this.toStringSensores();
+    }
+    
+    public String toStringSensores(){
         String datosSensores = "Estos son los sensores del vehículo: \n";
         if(this.sensores.size()>0)
         {
@@ -86,8 +91,7 @@ public class Vehiculo{
                 datosSensores=datosSensores.concat(this.sensores.get(i).toString());
             }
         }
-        return "ID: "+getId()+" - Modelo: "+getModelo()+" - Marca: "+getMarca()+" - Valor Comercial: "+getValorComercial()+" - Color: "+getColor()+"\n"+
-        datosSensores;
+        return datosSensores;
     }
  
     public static int cantidadVehiculos(){
@@ -138,5 +142,80 @@ public class Vehiculo{
             }
         }
         return null;
+    }
+    
+    public static String toStringTodosSensoresTemp()
+    {
+        String string="";
+        for(Vehiculo vehiculo: vehiculos){
+            string="Estos son los sensores TEMPERATURA del vehiculo con ID "+vehiculo.getId()+": \n";
+        if(vehiculo.cantidadSensores()>0)
+        {
+            for(int i = 0; i<vehiculo.cantidadSensores() ; i++)
+            {
+                if(vehiculo.sensores.get(i).getTipo().toUpperCase().equals("TEMPERATURA"))
+                {
+                    string=string.concat(vehiculo.sensores.get(i).toString());
+                }
+            }
+        }
+      }
+      return string;
+    }
+    
+    public static String obtenerVehiculosConMasSensores(){
+       int num=0;
+       for(int i=0; i<Vehiculo.vehiculos.size(); i++){
+            if(Vehiculo.vehiculos.get(i).cantidadSensores()>Vehiculo.vehiculos.get(num).cantidadSensores()){
+                num=i;
+            }
+        }
+       return "Información del vehículo con más sensores: \n"+
+       Vehiculo.vehiculos.get(num).toString();
+    }
+    
+    public static ArrayList<Sensor> obtenerSensoresOrganizados()
+    {
+        ArrayList<Sensor> organizado = new ArrayList<Sensor>();
+        for(Vehiculo vehiculo: vehiculos)
+        {
+            ArrayList<Sensor> sensoresTemporal= vehiculo.getSensores();
+            for(Sensor sensor: sensoresTemporal){
+            if(sensor.getTipo().toUpperCase().equals("TEMPERATURA"))
+            {
+                organizado.add(sensor);
+            }
+          }
+        }
+        int posMenor;
+        double obTemporal;
+        for(int i = 0; i < organizado.size() - 1; i++)
+        {
+            posMenor = i;
+            for(int j = i + 1; j <organizado.size(); j++)
+            {
+                if(organizado.get(j).getValor() < organizado.get(posMenor).getValor())
+                {
+                    posMenor = j;
+                }
+            }
+            obTemporal = organizado.get(i).getValor();
+            organizado.get(i).setValor(organizado.get(posMenor).getValor());
+            organizado.get(posMenor).setValor(obTemporal); 
+        }
+        return organizado;
+    }
+    
+    public static String toStringSensoresSatanicos(ArrayList<Sensor> sensores)
+    {
+        String string = "Estos son los sensores en nuestra lista: \n";
+        if(sensores.size()>0)
+        {
+            for(int i = 0; i<sensores.size() ; i++)
+            {
+                string=string.concat(sensores.get(i).toString());
+            }
+        }
+        return string;
     }
 }

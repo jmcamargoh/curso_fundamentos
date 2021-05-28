@@ -1,0 +1,5 @@
+1987, Toyota, 45, Rosa
+2002, Ford, 34, Rojo
+2020, Nissan, 67, Verde
+2010, Mazda, 50, Blanco
+2015, Audi, 100, Verde

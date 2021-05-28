@@ -38,41 +38,15 @@ public class Sensor
         return "Tipo: "+getTipo()+" - Valor: "+getValor() + "\n";
     }
  
-    /*public static String toStringSensores()
-    {
-        String string = "Estos son los sensores en nuestra lista: \n";
-        if(Sensor.cantidadSensores()>0)
-        {
-            for(int i = 0; i<Sensor.cantidadSensores() ; i++)
-            {
-                string=string.concat(Sensor.sensores[i].toString());
-            }
-        }
-        return string;
-    }
  
-    public static int cantidadSensores()
+    /*public static int cantidadSensores()
     {
         return posAnadir;
-    }
+    }*/
  
-    public static String toStringSensoresTemp()
-    {
-        String string = "Estos son los sensores en nuestra lista: \n";
-        if(Sensor.cantidadSensores()>0)
-        {
-            for(int i = 0; i<Sensor.cantidadSensores() ; i++)
-            {
-                if(Sensor.sensores[i].getTipo().toUpperCase().equals("TEMPERATURA"))
-                {
-                    string=string.concat(Sensor.sensores[i].toString());
-                }
-            }
-        }
-        return string;
-    }
+    
  
-    public static ArrayList<Sensor> obtenerSensoresOrganizados()
+    /*public static ArrayList<Sensor> obtenerSensoresOrganizados()
     {
         ArrayList<Sensor> organizado = new ArrayList<Sensor>();
         for(int i = 0; i<Sensor.cantidadSensores(); i++)

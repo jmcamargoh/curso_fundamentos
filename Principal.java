@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.io.File;
 public class Principal
 {
     public static void main(String[] args)
@@ -94,16 +95,41 @@ public class Principal
                     System.out.println("Error, ID no encontrado");
                 }else{
                     Vehiculo vehiculo= Vehiculo.obtenerVehiculoPorId(id);
-                    vehiculo
+                    System.out.println(vehiculo.toStringSensores());
                 }
             }
             else if(num==8)
             {
-                System.out.println(Sensor.toStringSensoresTemp());
+                System.out.println(Vehiculo.toStringTodosSensoresTemp());
+            }
+            else if(num==9)
+            {
+                System.out.println(Vehiculo.obtenerVehiculosConMasSensores());
+            }
+            else if(num==10)
+            {
+                File file= new File("prueba.txt");
+                try{
+                    Scanner input= new Scanner(file);
+                    String linea;
+                    int cont=1;
+                    while(input.hasNextLine()){
+                        linea= input.nextLine();
+                        String[] parts= linea.split(",");
+                        System.out.print(" Modelo vehiculo "+contador+":"+parts[0]);
+                        System.out.print(" Marca vehiculo "+contador+":"+parts[1]);
+                        System.out.print(" Valor vehiculo "+contador+":"+parts[2]);
+                        System.out.print(" Color vehiculo "+contador+":"+parts[3]);
+                        Vehiculo temp= new Vehiculo(Integer.parseInt(parts[0]), parts[1], Integer.parseInt(parts[2]), parts[3]);
+                        cont++;
+                    }
+                }catch(Exception e){
+                    System.out.println(e.getMessage());
+                }
             }
             else if(num==666)
             {
-                System.out.println(Sensor.toStringSensoresSatanicos(Sensor.obtenerSensoresOrganizados()));
+                System.out.println(Vehiculo.toStringSensoresSatanicos(Vehiculo.obtenerSensoresOrganizados()));
             }
             System.out.println("Escoja el número 1 para crear un vehículo.");
             System.out.println("Escoja el número 2 para mostrar la información de todos los vehículos creados.");
