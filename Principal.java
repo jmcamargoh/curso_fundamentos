@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.io.File;
+
 public class Principal
 {
     public static void main(String[] args)
@@ -13,11 +14,13 @@ public class Principal
         System.out.println("Escoja el número 2 para mostrar la información de todos los vehículos creados.");
         System.out.println("Escoja el número 3 para mostrar la cantidad de vehículos creados.");
         System.out.println("Escoja el número 4 para mostrar la información de los vehículos verdes.");
-        System.out.println("Escoja el número 5 para crear un sensor.");
-        System.out.println("Escoja el número 6 para mostrar la información de todos los sensores creados.");
-        System.out.println("Escoja el número 7 para mostrar el número de sensores creados.");
-        System.out.println("Escoja el número 8 para mostrar la información de tipo temperatura.");
-        System.out.println("Escoja el número 666 para visualizar los sensores ");
+        System.out.println("Escoja el número 5 para mostrar la información de algún vehiculo");
+        System.out.println("Escoja el número 6 para darle un sensor a algún vehiculo");
+        System.out.println("Escoja el número 7 para mostrar los sensores de uno de los vehiculos");
+        System.out.println("Escoja el número 8 para mostrar la información de todos los sensores tipo temperatura");
+        System.out.println("Escoja el número 9 para mostrar la información del vehiculo con más sensores");
+        System.out.println("Escoja el número 10 para cargar 5 vehículos ficticios");
+        System.out.println("Escoja el número 666 para visualizar todos los sensores de tipo temperatura ordenados por valor");
         Scanner scan = new Scanner(System.in);
         System.out.println("Escoja el número");
         int num = scan.nextInt();
@@ -63,12 +66,12 @@ public class Principal
             else if(num==5)
             {
                 System.out.println("Ingrese un ID");
-                int id= scan.nextInt();
+                int id = scan.nextInt();
                 if(Vehiculo.obtenerVehiculoPorId(id)==null){
                     System.out.println("Error, ID no encontrado");
                 }else{
-                    Vehiculo vehiculo= Vehiculo.obtenerVehiculoPorId(id);
-                    vehiculo.toString();
+                    Vehiculo vehiculo = Vehiculo.obtenerVehiculoPorId(id);
+                    System.out.println(vehiculo.toString());
                 }
             }
             else if(num==6)
@@ -116,10 +119,10 @@ public class Principal
                     while(input.hasNextLine()){
                         linea= input.nextLine();
                         String[] parts= linea.split(",");
-                        System.out.print(" Modelo vehiculo "+contador+":"+parts[0]);
-                        System.out.print(" Marca vehiculo "+contador+":"+parts[1]);
-                        System.out.print(" Valor vehiculo "+contador+":"+parts[2]);
-                        System.out.print(" Color vehiculo "+contador+":"+parts[3]);
+                        System.out.print(" Modelo vehiculo "+cont+": "+parts[0]);
+                        System.out.print(" Marca vehiculo "+cont+": "+parts[1]);
+                        System.out.print(" Valor vehiculo "+cont+": "+parts[2]);
+                        System.out.print(" Color vehiculo "+cont+": "+parts[3] + "\n");
                         Vehiculo temp= new Vehiculo(Integer.parseInt(parts[0]), parts[1], Integer.parseInt(parts[2]), parts[3]);
                         cont++;
                     }
