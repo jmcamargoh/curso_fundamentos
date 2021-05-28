@@ -148,17 +148,17 @@ public class Vehiculo{
     {
         String string="";
         for(Vehiculo vehiculo: vehiculos){
-            string="Estos son los sensores TEMPERATURA del vehiculo con ID "+vehiculo.getId()+": \n";
-        if(vehiculo.cantidadSensores()>0)
-        {
-            for(int i = 0; i<vehiculo.cantidadSensores() ; i++)
+            string = string.concat("Estos son los sensores TEMPERATURA del vehiculo con ID "+vehiculo.getId()+": \n");
+            if(vehiculo.cantidadSensores()>0)
             {
-                if(vehiculo.sensores.get(i).getTipo().toUpperCase().equals("TEMPERATURA"))
+                for(int i = 0; i<vehiculo.cantidadSensores() ; i++)
                 {
-                    string=string.concat(vehiculo.sensores.get(i).toString());
+                    if(vehiculo.getSensores().get(i).getTipo().toUpperCase().equals("TEMPERATURA"))
+                    {
+                        string = string.concat(vehiculo.getSensores().get(i).toString());
+                    }
                 }
             }
-        }
       }
       return string;
     }
